@@ -1,6 +1,7 @@
-﻿// Interface Segregation Principle
+﻿// Interface Segregation Principle - A class should not be forced to implement interfaces it does not use.
 namespace SOLIDPrinciples
 {
+    // 3 different interfaces have different methods to implement by derived class
     public interface IPrinter
     {
         void Print();
@@ -16,7 +17,7 @@ namespace SOLIDPrinciples
         void Fax();
     }
 
-
+    // simple printer might only support printing so implementing only that interface
     public class SimplePrinter : IPrinter
     {
         public void Print()
@@ -25,7 +26,7 @@ namespace SOLIDPrinciples
         }
     }
 
-    // A Multifunction Printer implements all three interfaces
+    // A Multifunction Printer implements all three interfaces because it supports all
     public class MultiFunctionPrinter : IPrinter, IScanner, IFax
     {
         public void Print()
