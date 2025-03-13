@@ -1,4 +1,4 @@
-﻿// Dependency Inversion Principle - High-level modules should not depend on low-level modules. Both should depend on abstractions(abstract class/interface)
+// Dependency Inversion Principle - High-level modules should not depend on low-level modules. Both should depend on abstractions(abstract class/interface)
 namespace SOLIDPrinciples
 {
     // interface on which other version control system will be implemented
@@ -11,9 +11,9 @@ namespace SOLIDPrinciples
     // defining methods of IVersionControl for GitVersionControl class
     class GitVersionControl : IVersionControl
     {
-        public void CommitMsg(string msg)
+        public void CommitMsg(string message)
         {
-            Console.WriteLine($"COMMITTING: {msg}");
+            Console.WriteLine($"COMMITTING: {message}");
         }
         public void Push()
         {
@@ -26,21 +26,21 @@ namespace SOLIDPrinciples
     }
     class DevelopmentTeam
     {
-        private IVersionControl versionControl;
+        private readonly IVersionControl versionControl;
         public DevelopmentTeam(IVersionControl versionControl)
         {
             // assigning version control accordingly
             this.versionControl = versionControl;
         }
-        public void toCommit(string commitMsg)
+        public void ToCommit(string commitMsg)
         {
             versionControl.CommitMsg(commitMsg); // calling method according to version control system
         }
-        public void toPush()
+        public void ToPush()
         {
             versionControl.Push();
         }
-        public void toPull()
+        public void ToPull()
         {
             versionControl.Pull();
         }

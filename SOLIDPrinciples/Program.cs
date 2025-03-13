@@ -1,4 +1,4 @@
-﻿namespace SOLIDPrinciples
+namespace SOLIDPrinciples
 {
     class Program
     {
@@ -30,7 +30,7 @@
             Console.WriteLine("\nPrinciple 4");
             IPrinter printer = new SimplePrinter();
             printer.Print();
-            MultiFunctionPrinter mfp = new MultiFunctionPrinter();
+            MultiFunctionPrinter mfp = new();
             mfp.Print();
             mfp.Scan();
             mfp.Fax();
@@ -39,9 +39,9 @@
             Console.WriteLine("\nPrinciple 5");
             GitVersionControl git = new();
             DevelopmentTeam team1 = new(git);
-            team1.toCommit("Commit 1");
-            team1.toPush();
-            team1.toPull();
+            team1.ToCommit("Commit 1");
+            team1.ToPush();
+            team1.ToPull();
         }
     }
 }
